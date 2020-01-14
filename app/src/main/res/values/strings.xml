@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CURA</string>
+
+    <string name="margin_below_text">4dp</string>
+    <string name="welcomeNote">Welcome to CURA!!! \n\nWe offer you a platform that can make you aware of those allergies that may be responsible for your illness. \n\nHealth conscious??? Yes, You are on right address. Kindly sign-in to start your journey. \n \n</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="perferNotToSay">Prefer not to say</string>
+    <string name="selectGender">Gender:</string>
+    <string name="saveButton">save details</string>
+    <string name="selectBirthday">select birthdate</string>
+
 </resources>
