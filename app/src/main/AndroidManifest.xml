@@ -9,6 +9,10 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".UserMainActivity"
+            android:label="@string/title_activity_user_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,9 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".LoginActivity">
-
-        </activity>
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".MainActivity" />
     </application>
 

@@ -90,7 +90,7 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
 
-                        startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                        startActivity(new Intent(ProfileActivity.this, UserMainActivity.class));
                         finish();
                     }
                 });
