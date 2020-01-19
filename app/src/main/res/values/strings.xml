@@ -24,5 +24,15 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="logout">Logout</string>
+    <string name="enterFoodName">Hi, Please enter food name:</string>
+    <string name="enterFoodIngredients">Enter ingredients:</string>
+    <string name="saveFoodItem">Save Food</string>
+    <string name="AddIngredient">Add Ingredients</string>
+    <string name="AddIngredientsUsingCamera">Add Ingredients using Camera</string>
+
+    <string name="AnalyseButton">Analyze</string>
+    <string name="flash_auto">auto</string>
+    <string name="flash_off">off</string>
+    <string name="flash_on">on</string>
 
 </resources>
