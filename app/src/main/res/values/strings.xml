@@ -34,5 +34,6 @@
     <string name="flash_auto">auto</string>
     <string name="flash_off">off</string>
     <string name="flash_on">on</string>
+    <string name="ingredientListMessage">THESE ARE THE INGREDIENTS THAT YOU CONSUMED AS PER THE DETAILS ON THE INGREDIENTS CHART.</string>
 
 </resources>

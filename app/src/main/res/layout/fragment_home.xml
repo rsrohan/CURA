@@ -4,114 +4,145 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="20dp">
+    android:paddingHorizontal="20dp"
+    android:background="@drawable/side_nav_bar">
 
-    <ImageView
-        android:id="@+id/imageHome"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:src="@mipmap/logo_transparent" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imageHome"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:visibility="gone"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:src="@mipmap/logo_transparent" />-->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:layout_below="@+id/imageHome"
-        android:gravity="center_vertical"
-        android:text="@string/enterFoodName"
-        android:id="@+id/foodNameMessage"
-        android:textColor="@color/colorOfText"
-        android:padding="6dp"/>
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="20dp"-->
+<!--        android:layout_below="@+id/imageHome"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:text="@string/enterFoodName"-->
+<!--        android:id="@+id/foodNameMessage"-->
+<!--        android:visibility="gone"-->
+<!--        android:textColor="@color/colorOfText"-->
+<!--        android:padding="6dp"/>-->
 
-   <EditText
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_centerHorizontal="true"
-       android:id="@+id/foodName"
-       android:layout_below="@+id/foodNameMessage"
-       android:background="@drawable/buttons_bg2"
-       android:padding="6dp"
-       android:layout_marginTop="20dp"
-       />
+<!--   <EditText-->
+<!--       android:layout_width="match_parent"-->
+<!--       android:layout_height="wrap_content"-->
+<!--       android:layout_centerHorizontal="true"-->
+<!--       android:id="@+id/foodName"-->
+<!--       android:layout_below="@+id/foodNameMessage"-->
+<!--       android:background="@drawable/buttons_bg2"-->
+<!--       android:padding="6dp"-->
+<!--       android:visibility="gone"-->
+<!--       android:layout_marginTop="20dp"-->
+<!--       />-->
+
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:background="@drawable/buttons_bg"-->
+<!--        android:layout_below="@+id/foodName"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:visibility="gone"-->
+<!--        android:id="@+id/saveFoodItem"-->
+<!--        android:text="@string/saveFoodItem"-->
+<!--        android:textColor="@color/colorOfText"-->
+<!--        android:padding="8dp"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/saveFoodItem"-->
+<!--        android:text="@string/enterFoodIngredients"-->
+<!--        android:textSize="20dp"-->
+<!--        android:padding="6dp"-->
+<!--        android:visibility="gone"-->
+<!--        android:id="@+id/foodIngredientsMessage"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:textColor="@color/colorOfText"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/ingredientsListToShow"-->
+<!--        android:layout_below="@id/foodIngredientsMessage"-->
+<!--        android:background="@drawable/buttons_bg"-->
+<!--        android:textColor="@color/colorOfText"-->
+<!--        android:padding="8dp"-->
+<!--        android:textSize="18dp"-->
+<!--        android:visibility="gone"-->
+<!--        />-->
+<!--    <EditText-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/addIngredientsEditText"-->
+<!--        android:layout_below="@+id/ingredientsListToShow"-->
+<!--        android:background="@drawable/buttons_bg2"-->
+<!--        android:padding="6dp"-->
+<!--        android:visibility="gone"-->
+
+
+<!--        />-->
+
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_below="@+id/addIngredientsEditText"-->
+<!--        android:background="@drawable/buttons_bg"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:text="@string/AddIngredient"-->
+<!--        android:id="@+id/addIngredientsButton"-->
+<!--        android:padding="8dp"-->
+<!--        android:visibility="gone"-->
+
+<!--        />-->
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/buttons_bg"
-        android:layout_below="@+id/foodName"
-        android:layout_marginTop="12dp"
-        android:id="@+id/saveFoodItem"
-        android:text="@string/saveFoodItem"
-        android:textColor="@color/colorOfText"
-        android:padding="8dp"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/saveFoodItem"
-        android:text="@string/enterFoodIngredients"
-        android:textSize="20dp"
-        android:padding="6dp"
-        android:id="@+id/foodIngredientsMessage"
-        android:gravity="center_vertical"
-        android:textColor="@color/colorOfText"
-        android:layout_marginTop="12dp"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ingredientsListToShow"
-        android:layout_below="@id/foodIngredientsMessage"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
         android:background="@drawable/buttons_bg"
         android:textColor="@color/colorOfText"
-        android:padding="8dp"
-        android:textSize="18dp"
-        android:visibility="invisible"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/addIngredientsEditText"
-        android:layout_below="@+id/ingredientsListToShow"
-        android:background="@drawable/buttons_bg2"
-        android:padding="6dp"
-
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/addIngredientsEditText"
-        android:background="@drawable/buttons_bg"
-        android:layout_marginTop="12dp"
-        android:text="@string/AddIngredient"
-        android:id="@+id/addIngredientsButton"
-        android:padding="8dp"
-        />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/addIngredientsButton"
-        android:background="@drawable/buttons_bg"
         android:layout_marginTop="12dp"
         android:text="@string/AddIngredientsUsingCamera"
         android:id="@+id/addIngredientsButtonUsingCamera"
-        android:padding="8dp"
+        android:padding="18dp"
         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addIngredientsButtonUsingCamera"
+        android:gravity="center"
+        android:text="@string/ingredientListMessage"
+        android:textColor="@color/colorOfText"
+        android:id="@+id/ingredientListMessage"
+        android:padding="12dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ingredientListMessage"
+        android:padding="8dp"
+        android:textColor="@color/colorOfText"
+        android:id="@+id/ingredientList"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/analyseButton"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="12dp"
+        android:textColor="@color/colorOfText"
         android:background="@drawable/buttons_bg"
         android:text="@string/AnalyseButton"
         />
+
 
 </RelativeLayout>

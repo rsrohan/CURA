@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     android:paddingHorizontal="16dp"
-    android:background="#e8e8e8">
+    android:background="@drawable/side_nav_bar">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="150dp"
