@@ -117,6 +117,7 @@
         android:padding="18dp"
         />
 
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -126,13 +127,20 @@
         android:textColor="@color/colorOfText"
         android:id="@+id/ingredientListMessage"
         android:padding="12dp"/>
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ingredientListMessage"
-        android:padding="8dp"
-        android:textColor="@color/colorOfText"
-        android:id="@+id/ingredientList"/>
+        android:layout_above="@+id/analyseButton"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textColor="@color/colorOfText"
+            android:id="@+id/ingredientList"/>
+    </ScrollView>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

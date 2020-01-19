@@ -66,8 +66,8 @@ public class HomeFragment extends Fragment {
             try {
                 s = s.replace(", ", "\n");
                 s = s.toUpperCase();
+                s = s.substring(s.indexOf("INGRE"));
                 ingredientsList.setText(s);
-
             }catch (Exception e){
                 Toast.makeText(getContext(), ""+e, Toast.LENGTH_SHORT).show();
             }
@@ -82,6 +82,7 @@ public class HomeFragment extends Fragment {
                 if (checkAndRequestPermissions(getActivity()))
                 {
                     startActivity(new Intent(getContext(), EditImageActivity.class));
+                    Objects.requireNonNull(getActivity()).finish();
                 }
             }
         });
