@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +24,13 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.ml.vision.FirebaseVision;
 import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.firebase.ml.vision.text.FirebaseVisionText;
@@ -30,6 +38,7 @@ import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class EditImageActivity extends AppCompatActivity {
@@ -38,6 +47,12 @@ public class EditImageActivity extends AppCompatActivity {
     private Button saveDetails;
     private ImageView imageView;
     TextView textView;
+    private String TAG;
+
+    DatabaseReference dref;
+    FirebaseUser mUser;
+
+    String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +60,11 @@ public class EditImageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_image);
         imageView = findViewById(R.id.croppedImage);
         textView = findViewById(R.id.textView);
+        mUser = FirebaseAuth.getInstance().getCurrentUser();
+        assert mUser != null;
+        uid = mUser.getUid();
+
+        dref = FirebaseDatabase.getInstance().getReference("PROFILE DETAILS").child(uid).child("food");
 
 
         saveDetails = findViewById(R.id.saveDetails);
@@ -52,12 +72,42 @@ public class EditImageActivity extends AppCompatActivity {
                 .start(this);
 
 
-
         saveDetails.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), UserMainActivity.class).putExtra("ingredients details", textView.getText().toString()));
-                finish();
+                try {
+
+                    dref.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            long childCount = dataSnapshot.getChildrenCount();
+
+                            String ing = textView.getText().toString();
+                            try{
+                                ing = ing.substring(ing.indexOf(":")+1);
+                            }catch (Exception e){
+                                Log.d(TAG, "onDataChange: ingredient word not found"+e);
+                            }
+                            ing = ing.replace("\n", " ");
+
+                            String[] ingList = ing.split(",");
+
+                            ArrayList<String> ingListToUpload = new ArrayList<>(Arrays.asList(ingList));
+                            dref.child("" + childCount).setValue(ingListToUpload);
+                            startActivity(new Intent(getApplicationContext(), UserMainActivity.class).putExtra("ingredients details", ing));
+                            finish();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                } catch (Exception e) {
+                    Log.d(TAG, "onClick: " + e);
+                }
+
             }
         });
     }
@@ -97,7 +147,7 @@ public class EditImageActivity extends AppCompatActivity {
 //
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
-                Toast.makeText(this, ""+error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "" + error, Toast.LENGTH_SHORT).show();
             }
         }
     }

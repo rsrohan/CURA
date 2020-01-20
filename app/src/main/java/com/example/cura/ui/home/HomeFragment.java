@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -66,10 +67,15 @@ public class HomeFragment extends Fragment {
             try {
                 s = s.replace(", ", "\n");
                 s = s.toUpperCase();
-                s = s.substring(s.indexOf("INGRE"));
+                try {
+                    s = s.substring(s.indexOf("INGRE"));
+                }catch (Exception e){
+                    Toast.makeText(getContext(), ""+e, Toast.LENGTH_SHORT).show();
+                }
                 ingredientsList.setText(s);
             }catch (Exception e){
                 Toast.makeText(getContext(), ""+e, Toast.LENGTH_SHORT).show();
+                ingredientsList.setText(s);
             }
 
         }else{
@@ -87,17 +93,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        final ArrayList<String> stringArrayList = new ArrayList<>();
-//        addIngredient.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (foodIngredient.getText().toString().length()>1)
-//                {
-//                    String s = foodIngredient.getText().toString();
-//                    stringArrayList.add(s);
-//                }
-//            }
-//        });
+
         return root;
     }
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 101;
@@ -124,7 +120,17 @@ public class HomeFragment extends Fragment {
         return true;
     }
 
-
-
-
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == REQUEST_ID_MULTIPLE_PERMISSIONS)
+        {
+            if (resultCode == RESULT_OK)
+            {
+                startActivity(new Intent(getContext(), EditImageActivity.class));
+                Objects.requireNonNull(getActivity()).finish();
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }
