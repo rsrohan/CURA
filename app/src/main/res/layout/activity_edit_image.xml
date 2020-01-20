@@ -45,4 +45,10 @@
         android:textColor="@color/colorOfText"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="4dp" />
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/progress_circular"
+        android:visibility="gone"/>
 </RelativeLayout>

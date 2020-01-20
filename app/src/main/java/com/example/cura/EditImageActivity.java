@@ -79,6 +79,7 @@ public class EditImageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
 
+                    findViewById(R.id.progress_circular).setVisibility(View.VISIBLE);
                     dref.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
