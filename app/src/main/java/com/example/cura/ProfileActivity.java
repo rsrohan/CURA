@@ -57,7 +57,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         mUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("PROFILE DETAILS").child(mUser.getUid()).child("details");
+        assert mUser != null;
+        String userName = mUser.getEmail();
+        userName = userName.substring(0, userName.indexOf("@"));
+        databaseReference = FirebaseDatabase.getInstance().getReference("PROFILE DETAILS").child(userName).child("details");
 
         assert mUser != null;
 

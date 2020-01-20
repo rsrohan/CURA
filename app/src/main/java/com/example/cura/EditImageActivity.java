@@ -62,7 +62,8 @@ public class EditImageActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
         mUser = FirebaseAuth.getInstance().getCurrentUser();
         assert mUser != null;
-        uid = mUser.getUid();
+        uid = mUser.getEmail();
+        uid = uid.substring(0, uid.indexOf("@"));
 
         dref = FirebaseDatabase.getInstance().getReference("PROFILE DETAILS").child(uid).child("food");
 
