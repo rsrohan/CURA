@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,13 +39,24 @@ import com.anychart.enums.TooltipPositionMode;
 import com.bumptech.glide.Glide;
 import com.example.cura.EditImageActivity;
 import com.example.cura.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.theartofdev.edmodo.cropper.CropImage;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class HomeFragment extends Fragment {
 
@@ -106,6 +118,55 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+        final String urlAdress="";
+
+
+        final JSONObject data = new JSONObject();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+
+                    URL url = new URL(urlAdress);
+                    Log.d(TAG, "run: " + urlAdress);
+                    final HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    conn.setRequestMethod("POST");
+                    conn.setRequestProperty("Content-Type", "application/json");
+                    conn.setRequestProperty("Accept", "application/json");
+                    conn.setDoOutput(true);
+                    conn.setDoInput(true);
+
+                    Log.d(TAG, "run: " + data.toString());
+                    DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+                    os.writeBytes(data.toString());
+                    os.flush();
+                    os.close();
+
+                    final Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+                    StringBuilder sb = new StringBuilder();
+                    for (int c; (c = in.read()) >= 0; )
+                        sb.append((char) c);
+                    final String response = sb.toString();
+
+                    Log.i("STATUS", String.valueOf(conn.getResponseCode()));
+                    Log.i("MSG123", response);
+
+                    final JSONObject jsonObject = new JSONObject(response);
+
+                    Log.d(TAG, "run: " + jsonObject);
+
+                    conn.disconnect();
+                } catch (final Exception e) {
+                    e.printStackTrace();
+
+                }
+
+
+            }
+        });
+
+        thread.start();
+
 
         analyze.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +177,7 @@ public class HomeFragment extends Fragment {
                 anyChartView.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.VISIBLE);
                 anyChartView.setProgressBar(progressBar);
+
 
 
                 Cartesian cartesian = AnyChart.column();
