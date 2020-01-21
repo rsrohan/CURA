@@ -72,7 +72,7 @@ public class HomeFragment extends Fragment {
         addIngredientUsingCamera = root.findViewById(R.id.addIngredientsButtonUsingCamera);
         ingredientsList = root.findViewById(R.id.ingredientList);
 
-        progressBar=root.findViewById(R.id.progress_bar);
+        progressBar = root.findViewById(R.id.progress_bar);
         anyChartView = root.findViewById(R.id.any_chart_view);
         String s = Objects.requireNonNull(getActivity()).getIntent().getStringExtra("ingredients details");
 
@@ -110,7 +110,7 @@ public class HomeFragment extends Fragment {
         analyze.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               
+
 
                 ingredientsList.setVisibility(View.GONE);
                 anyChartView.setVisibility(View.VISIBLE);
@@ -121,10 +121,10 @@ public class HomeFragment extends Fragment {
                 Cartesian cartesian = AnyChart.column();
 
                 List<DataEntry> data = new ArrayList<>();
-                data.add(new ValueDataEntry("Rouge", 10));
-                data.add(new ValueDataEntry("Foundation", 20));
-                data.add(new ValueDataEntry("Mascara", 30));
-                data.add(new ValueDataEntry("Lip gloss", 40));
+                data.add(new ValueDataEntry("ingred1", 1));
+                data.add(new ValueDataEntry("ingred2", 2));
+                data.add(new ValueDataEntry("ingred3", 5));
+                data.add(new ValueDataEntry("ingred4", 4));
 
                 Column column = cartesian.column(data);
                 column.tooltip()
@@ -133,14 +133,14 @@ public class HomeFragment extends Fragment {
                         .anchor(Anchor.CENTER_BOTTOM)
                         .offsetX(0d)
                         .offsetY(5d)
-                        .format("${%Value}{groupsSeparator: }");
+                        .format("number of intakes: {%Value}{groupsSeparator: }");
 
                 cartesian.animation(true);
                 cartesian.title("INGREDIENTS CONSUMED BY YOU DURING THIS ALLERGY PERIOD.");
 
                 cartesian.yScale().minimum(0d);
 
-                cartesian.yAxis(0).labels().format("${%Value}{groupsSeparator: }");
+                cartesian.yAxis(0).labels().format("{%Value}{groupsSeparator: }");
 
                 cartesian.tooltip().positionMode(TooltipPositionMode.POINT);
                 cartesian.interactivity().hoverMode(HoverMode.BY_X);

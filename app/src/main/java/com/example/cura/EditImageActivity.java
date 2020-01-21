@@ -86,10 +86,10 @@ public class EditImageActivity extends AppCompatActivity {
                             long childCount = dataSnapshot.getChildrenCount();
 
                             String ing = textView.getText().toString();
-                            try{
-                                ing = ing.substring(ing.indexOf(":")+1);
-                            }catch (Exception e){
-                                Log.d(TAG, "onDataChange: ingredient word not found"+e);
+                            try {
+                                ing = ing.substring(ing.indexOf(":") + 1);
+                            } catch (Exception e) {
+                                Log.d(TAG, "onDataChange: ingredient word not found" + e);
                             }
                             ing = ing.replace("\n", " ");
 
