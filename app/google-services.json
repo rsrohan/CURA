@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "468594597481",
+    "firebase_url": "https://cura-3fb51.firebaseio.com",
+    "project_id": "cura-3fb51",
+    "storage_bucket": "cura-3fb51.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:468594597481:android:e1b5cd6b6e44bbe9670cf8",
+        "android_client_info": {
+          "package_name": "com.example.cura"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "468594597481-e8tg1fk823gf7kcp91gs8k6f7dfec7kf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cura",
+            "certificate_hash": "e4ff16046f24b2619d29c1cd3f02bfc1f59bc096"
+          }
+        },
+        {
+          "client_id": "468594597481-2qd86b8nvmabf8fginmr39gjg0aup4an.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6VmLobSZZdxey6HQoc0N-P8HEmc8738w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "468594597481-2qd86b8nvmabf8fginmr39gjg0aup4an.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
