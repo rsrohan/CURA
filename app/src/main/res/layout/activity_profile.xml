@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity"
-    android:background="@drawable/side_nav_bar">
+    android:background="@color/bgdefault">
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/profileImage"
         android:src="@mipmap/profiledefault"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="32dp"
         />
     <TextView
         android:layout_width="match_parent"
@@ -29,18 +29,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/pickdob"
+        android:drawableTop="@drawable/ic_birthday"
         android:layout_below="@+id/profileName"
         android:textColor="@color/colorOfText"
         android:layout_marginHorizontal="20dp"
-        android:background="@drawable/buttons_bg"
+        android:textAllCaps="false"
+        android:background="#00000000"
+        android:drawablePadding="12dp"
+        android:drawableTint="@color/colorAccent"
         android:text="@string/selectBirthday"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/selectGender"
+        android:text="Select Gender"
+        android:gravity="center"
         android:layout_below="@+id/pickdob"
-        android:layout_marginTop="12dp"
+        android:drawablePadding="12dp"
+        android:layout_marginTop="32dp"
+        android:visibility="visible"
+        android:drawableTop="@drawable/ic_gender"
         android:textColor="@color/colorOfText"
         android:paddingHorizontal="20dp"
         android:textSize="18dp"
@@ -51,22 +59,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/selectGenderMessage"
-        android:layout_marginTop="12dp"
         android:id="@+id/selectGender"
         android:paddingHorizontal="20dp">
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
             android:text="@string/male"
             />
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
             android:text="@string/female"
             />
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
             android:text="@string/perferNotToSay"
             />
     </RadioGroup>
@@ -74,12 +84,12 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="32dp"
         android:layout_below="@+id/selectGender"
         android:layout_marginHorizontal="28dp"
         android:textColor="@color/colorOfText"
         android:text="@string/saveButton"
         android:id="@+id/saveDetails"
-        android:background="@drawable/buttons_bg2"
+        android:background="@drawable/buttons_bg"
         />
 </RelativeLayout>

@@ -86,7 +86,7 @@ public class HomeFragment extends Fragment {
 
         progressBar = root.findViewById(R.id.progress_bar);
         anyChartView = root.findViewById(R.id.any_chart_view);
-        String s = Objects.requireNonNull(getActivity()).getIntent().getStringExtra("ingredients details");
+        String s = requireActivity().getIntent().getStringExtra("ingredients details");
 
 
         if (s != null) {
@@ -114,7 +114,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 if (checkAndRequestPermissions(getActivity())) {
                     startActivity(new Intent(getContext(), EditImageActivity.class));
-                    Objects.requireNonNull(getActivity()).finish();
+                    requireActivity().finish();
                 }
             }
         });
@@ -248,7 +248,7 @@ public class HomeFragment extends Fragment {
         if (requestCode == REQUEST_ID_MULTIPLE_PERMISSIONS) {
             if (resultCode == RESULT_OK) {
                 startActivity(new Intent(getContext(), EditImageActivity.class));
-                Objects.requireNonNull(getActivity()).finish();
+                requireActivity().finish();
             }
         }
         super.onActivityResult(requestCode, resultCode, data);

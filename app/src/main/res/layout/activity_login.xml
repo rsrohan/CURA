@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".LoginActivity"
     android:paddingHorizontal="16dp"
-    android:background="@drawable/side_nav_bar">
+    android:background="@color/bgdefault">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_welcome"
+        android:layout_marginTop="22dp"
+        app:tint="@color/colorAccent" />
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginBottom="26dp"
         android:src="@drawable/logo"
         android:id="@+id/logo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
         />
 
 
@@ -25,18 +32,21 @@
         android:layout_height="wrap_content"
         android:id="@+id/welcomeNote"
         android:layout_below="@+id/logo"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="14dp"
+        android:textStyle="bold"
         android:textColor="@color/colorOfText"
         android:text="@string/welcomeNote"
+        android:drawableBottom="@drawable/ic_login"
+        android:drawablePadding="12dp"
         android:gravity="center"
         />
     <com.google.android.gms.common.SignInButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:layout_below="@+id/welcomeNote"
         android:id="@+id/googleSignIn"
         android:layout_centerHorizontal="true"
-
         />
 
-</RelativeLayout>
+</LinearLayout>

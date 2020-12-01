@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/side_nav_bar"
+    android:background="@color/bgdefault"
     android:paddingHorizontal="20dp">
 
     <!--    <ImageView-->
@@ -108,11 +108,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="12dp"
         android:background="@drawable/buttons_bg"
-        android:padding="18dp"
+        android:drawableStart="@drawable/ic_add_ing"
+        android:drawablePadding="8dp"
+        android:drawableTint="@color/bgdefault"
+        android:paddingHorizontal="12dp"
         android:text="@string/AddIngredientsUsingCamera"
+        android:textAllCaps="false"
         android:textColor="@color/colorOfText" />
 
 
@@ -121,6 +125,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/addIngredientsButtonUsingCamera"
+        android:fontFamily="monospace"
         android:gravity="center"
         android:padding="12dp"
         android:text="@string/ingredientListMessage"
@@ -137,18 +142,18 @@
             android:layout_height="wrap_content">
 
             <com.anychart.AnyChartView
-                android:layout_marginTop="12dp"
                 android:id="@+id/any_chart_view"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:visibility="gone"/>
+                android:layout_marginTop="12dp"
+                android:visibility="gone" />
 
             <ProgressBar
                 android:id="@+id/progress_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/ingredientList"
@@ -163,11 +168,15 @@
 
     <Button
         android:id="@+id/analyseButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/buttons_bg"
+        android:drawableStart="@drawable/ic_analyze"
+        android:drawablePadding="12dp"
+        android:paddingHorizontal="20dp"
         android:text="@string/AnalyseButton"
         android:textColor="@color/colorOfText" />
 
